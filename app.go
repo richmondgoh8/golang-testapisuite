@@ -8,8 +8,8 @@ import (
 )
 
 const (
-  host     = "localhost"
-  //host     = "database"
+  //host     = "localhost"
+  host     = "database"
   port     = 5432
   user     = "postgres"
   password = "Abcd@1234"
@@ -22,10 +22,10 @@ type App struct {
 	Router *mux.Router
 }
 
-func (a *App) Initialize() {
+func (a *App) Initialize(customHost string) {
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 	"password=%s dbname=%s sslmode=disable",
-	host, port, user, password, dbname)
+	customHost, port, user, password, dbname)
 
 	var err error
 	a.DB, err = sql.Open("postgres", psqlInfo)

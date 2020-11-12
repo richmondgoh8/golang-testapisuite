@@ -21,7 +21,7 @@ type ReturnResponse struct {
 var a App
 
 func TestMain(m *testing.M) {
-    a.Initialize()
+    a.Initialize("localhost")
 
     // Ensure Proper Connection to Database
     ensureTableExists()

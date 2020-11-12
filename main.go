@@ -97,7 +97,7 @@ func (a *App)createArticle(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Init router
 	a := App{}
-	a.Initialize()
+	a.Initialize(host)
 
 	// Start server
 	log.Fatal(http.ListenAndServe(":8080", a.Router))
