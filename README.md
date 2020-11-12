@@ -33,6 +33,10 @@ Sample Input for POST
 }
 ```
 
+# Additional Comments
+
+This is for easy usage for you to have a rough feel of the project without work from your side, you should not expose your .env file and credentials should be taken from environment variables instead.
+
 # Additional Commands
 ```
 go mod init github.com/richmondgoh8/golang-testapisuite
