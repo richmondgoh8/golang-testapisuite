@@ -76,6 +76,14 @@ func TestPostArticle(t *testing.T) {
 
     response := executeRequest(req)
     checkResponseCode(t, http.StatusCreated, response.Code)
+
+    // Invalid Post Article
+    jsonStr = []byte(`{"title": "", "Content": "", "Author": ""}`)
+    req, _ = http.NewRequest("POST", "/articles", bytes.NewBuffer(jsonStr))
+    req.Header.Set("Content-Type", "application/json")
+
+    response = executeRequest(req)
+    checkResponseCode(t, http.StatusBadRequest, response.Code)
 }
 
 func executeRequest(req *http.Request) *httptest.ResponseRecorder {
